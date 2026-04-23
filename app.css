@@ -59,9 +59,21 @@ a {
 /* Layout */
 
 .container {
-  width: 140rem;
+  max-width: 140rem;
   margin: 0 auto;
   padding: 9.6rem 2.4rem;
+}
+
+:is(
+    .section-about,
+    .section-blog,
+    .section-contact,
+    .section-course,
+    .section-why-choose,
+    .section-contact--homepage,
+  )
+  .container:first-child {
+  padding: 6.4rem 2.4rem 2.4rem 2.4rem;
 }
 
 .grid{
@@ -70,6 +82,14 @@ a {
 
 .grid-two-cols{
   grid-template-columns: repeat(2,1fr);
+}
+
+.grid-three-cols{
+  grid-template-columns: repeat(3,1fr);
+}
+
+.grid-four-cols{
+  grid-template-columns: repeat(4,1fr);
 }
 
 .btn{
@@ -81,7 +101,33 @@ a {
   box-shadow: var(--btn-box-shadow);
 }
 
+.fa-solid{
+  padding: 2.4rem;
+  font-size: 2.4rem;
+  background-color: var(--supporting-color);
+  color: var(--hero-heading-color);
+  border-radius: 50%;
+}
+
+
+
 /* module / reusable */
+.section-common-heading{
+  font-weight: 700;
+  font-size: 3.2rem;
+  text-transform: capitalize;
+}
+
+.section-common-subheading{
+  color: var(--heading-color);
+  font-size: 2rem;
+}
+
+.section-common-title{
+  font-size: 2rem;
+  margin: 2rem 0 1.2rem 0;
+}
+
 
 /* states */
 
@@ -216,3 +262,234 @@ main{
 
 
 /***** End Hero Section *****/
+
+/***** About Section *****/ 
+
+.section-about .grid{
+  gap: 6.4rem;
+}
+
+.section-about .about-div{
+  text-align: center;
+}
+
+.section-about img{
+  padding: 2.4rem;
+  background-color: var(--supporting-color);
+  width: 15rem;
+  height: auto;
+  border-radius: 50%;
+  transition: all 0.3s linear;
+}
+
+.section-about .about-div img:hover{
+  background: linear-gradient(to right, #0575e6, #021b79);
+  rotate: 360deg;
+}
+
+/***** End About Section *****/
+
+
+/***** Course Section *****/ 
+
+.section-course{
+  background-color: var(--bg-color);
+}
+
+.section-course .grid{
+  gap: 3.2rem;
+}
+
+.section-course .course-div{
+  padding: 3.2rem;
+}
+
+.course-div:hover{
+  box-shadow: var(--btn-box-shadow);
+}
+
+.course-div:nth-child(2) .icon .fa-solid {
+  color: #68bf9b;
+  background-color: #e7f6ef;
+}
+
+.course-div:nth-child(3) .icon .fa-solid {
+  color: #ff8b52;
+  background-color: #fbebe8;
+}
+
+.course-div:nth-child(4) .icon .fa-solid {
+  color: #183d3d;
+  background-color: #ccf7f7;
+}
+
+.course-div:nth-child(5) .icon .fa-solid {
+  color: #d988b9;
+  background-color: rgb(247, 223, 238);
+}
+
+.course-div:nth-child(6) .icon .fa-solid {
+  color: #ff9b50;
+  background-color: #f6dfce;
+}
+
+.course-div:nth-child(7) .icon .fa-solid {
+  color: #1450a3;
+  background-color: #dce9fa;
+}
+/***** End Section *****/
+
+
+/***** Why Choose Section *****/ 
+
+.section-why-choose .grid{
+  gap: 9.6rem;
+}
+
+.section-why-choose .choose-left-div .why-choose-div{
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: end;
+  text-align: right;
+}
+
+.common-text-highlight{
+  font-size: 2.4rem;
+  width: 6rem;
+  aspect-ratio: 1;
+  background-color: var(--supporting-color);
+  color: var(--main-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+}
+
+.choose-center-div img{
+  width: 90%;
+  height: auto;
+}
+
+.why-choose-div{
+  margin-top: 3.2rem;
+}
+
+.choose-center-div,figure{
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.choose-center-div figure::before, figure::after{
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  background-color: var(--main-color);
+  width: 45rem;
+  aspect-ratio: 1;
+  z-index: -1;
+  border-radius: 50%;
+}
+
+.choose-center-div figure::before{
+  animation: circle 5s linear infinite;
+}
+
+.choose-center-div figure::after{
+  content: "";
+  width: 50rem;
+  height: 50rem;
+  background-color: transparent;
+  border: .5rem solid var(--supporting-color);
+  border-radius: 50%;
+  z-index: -2;
+}
+
+@keyframes circle {
+  0% {
+    background-color: #b3d0ff;
+  }
+  25% {
+    background-color: #80b1ff;
+  }
+  50% {
+    background-color: #4d91ff;
+  }
+  75% {
+    background-color: #99c0ff;
+  }
+  100% {
+    background-color: #3381ff;
+  }
+}
+
+
+/***** End Why Choose Section *****/
+
+/***** Contact Home Page Section *****/ 
+
+.section-contact--homepage {
+  width: 60%;
+  min-height: 30rem;
+  margin: 0 auto;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+  margin-bottom: 5rem;
+  border-radius: 0.2rem;
+  -webkit-border-radius: 0.2rem;
+  -moz-border-radius: 0.2rem;
+  -ms-border-radius: 0.2rem;
+  -o-border-radius: 0.2rem;
+  padding: 0 3.2rem;
+  /* position: relative;
+  bottom: -15rem;
+  z-index: 1; */
+  /* margin-bottom: -15rem; */
+  /* background-color: var(--white-color); */
+  /* z-index: 1; */
+
+  & .grid {
+    align-content: center;
+    gap: 6.4rem;
+  }
+}
+
+.contact-container{
+  padding-top: 5rem;
+  /* display: flex;
+  align-items: center; */
+}
+
+.contact-title {
+  font-size: 3.8rem;
+  line-height: 1.2;
+}
+
+.contact-content p {
+  margin: 1.2rem 0 2.4rem 0;
+}
+
+
+
+.section-contact--homepage a {
+  color: var(--white-color);
+  text-transform: capitalize;
+}
+
+.section-contact--homepage .fa-solid {
+  padding: 0;
+  color: var(--white-color);
+  background-color: var(--main-color);
+}
+
+.section-contact--homepage img {
+  width: 90%;
+  height: auto;
+}
+
+/***** End Contact Home Page Section *****/
+
